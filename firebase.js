@@ -280,7 +280,7 @@ window.eliminarRecuerdo = async function (id) {
     // Borrar imagen en Cloudinary
     if (datos.public_id) {
 
-        await fetch("https://nuestra-historia-boy1.onrender.com/eliminar-imagen", {
+       await fetch("https://tu-servidor.onrender.com/eliminar-imagen", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

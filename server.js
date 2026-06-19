@@ -34,7 +34,8 @@ app.post("/eliminar-imagen", async (req, res) => {
 });
 
 
-// Encender servidor
-app.listen(3000, () => {
-    console.log("Servidor funcionando en puerto 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Servidor funcionando en puerto ${PORT}`);
 });
