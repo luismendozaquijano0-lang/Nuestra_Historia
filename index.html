@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestra Historia | Luis & Yair</title>
+
+
+    <link rel="stylesheet" href="estilos.css">
+
+
+    <link rel="icon" href="iconos/logo.png">
+</head>
+
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            Nuestra Historia
+        </div>
+
+        <nav class="menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#recuerdos">Recuerdos</a>
+
+            <a href="#fechas">Fechas</a>
+            <a href="#cartas">Cartas</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===== PORTADA PRINCIPAL ===== -->
+    <section id="inicio" class="hero">
+
+        <h1>
+            Luis & Yair
+        </h1>
+
+        <h2>
+            Nuestra historia comenzó el
+            16 de abril del 2026
+        </h2>
+
+
+        <p class="frase">
+            "Cada momento a tu lado se convierte
+            en un recuerdo eterno"
+        </p>
+
+
+        <!-- Contador automático -->
+        <div class="contador">
+
+            <h3>
+                ⏳ Llevamos juntos:
+            </h3>
+
+
+            <div class="tiempo">
+
+                <div class="caja-tiempo">
+                    <span id="dias">0</span>
+                    <p>Días</p>
+                </div>
+
+
+                <div class="caja-tiempo">
+                    <span id="horas">0</span>
+                    <p>Horas</p>
+                </div>
+
+
+                <div class="caja-tiempo">
+                    <span id="minutos">0</span>
+                    <p>Minutos</p>
+                </div>
+
+
+                <div class="caja-tiempo">
+                    <span id="segundos">0</span>
+                    <p>Segundos</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a href="#recuerdos" class="boton">
+            Ver nuestra historia
+        </a>
+
+
+    </section>
+
+
+
+    <!-- ===== ESTADÍSTICAS ===== -->
+
+    <section class="estadisticas">
+
+        <div class="tarjeta">
+            <h3>📸 Fotos</h3>
+            <p id="contador-fotos">0 recuerdos</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>🎥 Videos</h3>
+            <p id="contador-videos">0 recuerdos</p>
+        </div>
+
+
+        <div class="tarjeta">
+            <h3>Momentos</h3>
+            <p>Toda una vida por escribir</p>
+        </div>
+
+    </section>
+
+
+
+    <section id="recuerdos" class="recuerdos">
+
+        <h2>
+            📸 Nuestros recuerdos
+        </h2>
+
+
+        
+
+
+     <div class="galeria" id="lista-recuerdos">
+</div>
+
+
+<div class="barra-acciones">
+
+    <button id="modo-editar">
+        ✏️ Editar
+    </button>
+
+    <button id="modo-eliminar">
+        🗑️ Eliminar
+    </button>
+
+</div>
+
+
+<button id="btn-agregar" class="boton-agregar">
+    ➕ Agregar recuerdo
+</button>
+
+
+       
+
+
+        <div id="formulario-recuerdo" class="agregar-recuerdo">
+
+            <input type="file" id="foto" accept="image/*,video/*">
+
+            <input type="text" id="titulo" placeholder="Título del recuerdo">
+
+            <input type="date" id="fecha">
+
+            <textarea id="mensaje" placeholder="Escribe un momento especial"></textarea>
+
+            <button id="guardar-recuerdo">
+                Guardar
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===== FECHAS IMPORTANTES ===== -->
+
+    <section id="fechas" class="fechas">
+
+        <h2>
+            📅 Nuestra línea del tiempo
+        </h2>
+
+
+        <div class="evento">
+            ❤️ 16 Abril 2026<br>
+            El día que comenzó nuestra historia.
+        </div>
+
+
+        <div class="evento">
+            ❤️ 16 Mayo 2026<br>
+            Nuestro primer 1 mes juntos.
+        </div>
+
+        <div class="evento">
+            ❤️ 16 Junio 2026<br>
+            Nuestros primeros 2 meses juntos.
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ===== CARTAS ===== -->
+
+    <section id="cartas" class="cartas">
+
+        <h2>
+            💌 Cartas para ti
+        </h2>
+
+
+        <button class="boton-carta">
+            Abrir carta
+        </button>
+
+    </section>
+
+
+
+    <!-- ===== NOSOTROS ===== -->
+
+    <section id="nosotros" class="nosotros">
+
+        <h2>
+            ❤️ Luis & Yair ❤️
+        </h2>
+
+
+        <p>
+            Dos personas, una historia y millones
+            de recuerdos por crear juntos.
+        </p>
+
+    </section>
+
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p>
+            Nuestra Historia | Desde 16/04/2026
+        </p>
+
+    </footer>
+
+    <!-- MODAL DEL RECUERDO -->
+
+    <div id="modal-recuerdo" class="modal">
+
+        <div class="modal-contenido">
+
+            <button id="cerrar-modal">
+                ✕
+            </button>
+
+
+            <div id="modal-multimedia">
+                <!-- Aquí irá la foto o video -->
+            </div>
+
+
+            <h2 id="modal-titulo"></h2>
+
+
+            <p id="modal-mensaje"></p>
+
+
+            <small id="modal-fecha"></small>
+
+
+        </div>
+
+    </div>
+
+
+<div id="notificacion" class="notificacion">
+    ❤️ Recuerdo guardado
+</div>
+
+
+    <script src="app.js"></script>
+    <script type="module" src="firebase.js"></script>
+
+
+
+    <!-- MODAL CONFIRMAR ELIMINAR -->
+
+<div id="modal-eliminar" class="modal-confirmar">
+
+    <div class="caja-confirmar">
+
+        <h2>❤️ Eliminar recuerdo</h2>
+
+        <p>
+            ¿Seguro que deseas eliminar este recuerdo?
+        </p>
+
+        <div class="botones-confirmar">
+
+            <button id="cancelar-eliminar">
+                Cancelar
+            </button>
+
+            <button id="aceptar-eliminar">
+                Eliminar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+</html>
