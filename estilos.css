@@ -413,35 +413,35 @@ footer {
     transform: scale(1.05);
 }
 
-
 @media(max-width:900px) {
 
-
-    
-
-    .agregar-recuerdo {
-    grid-template-columns: 1fr;
-}
-
-.agregar-recuerdo textarea,
-#guardar-recuerdo {
-    grid-column: 1;
-}
+    section {
+        padding: 70px 5%;
+    }
 
     .header {
         flex-direction: column;
-        gap: 15px;
-        padding: 15px;
+        gap: 12px;
+        padding: 14px 10px;
+    }
+
+    .logo {
+        font-size: 34px;
+        text-align: center;
     }
 
     .menu {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 18px;
+    }
+
+    .menu a {
+        font-size: 22px;
     }
 
     .hero h1 {
-        font-size: 40px;
+        font-size: 42px;
     }
 
     .hero h2 {
@@ -457,18 +457,62 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .galeria {
+    .agregar-recuerdo {
         grid-template-columns: 1fr;
+    }
+
+    .agregar-recuerdo textarea,
+    #guardar-recuerdo {
+        grid-column: 1;
     }
 
     .recuerdos h2,
     .fechas h2,
     .cartas h2,
     .nosotros h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
-    
+    /* GALERÍA TIPO INSTAGRAM EN CELULAR */
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-bottom: 25px;
+    }
+
+    .foto {
+        padding: 0;
+        min-height: auto;
+        border-radius: 8px;
+        overflow: hidden;
+        gap: 0;
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .imagen-recuerdo {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 0;
+    }
+
+    .contenido-recuerdo {
+        display: none;
+    }
+
+    .foto h3,
+    .foto p,
+    .foto small {
+        display: none;
+    }
+
+        .foto:hover {
+        transform: none;
+    }
 }
 
 .barra-acciones {
