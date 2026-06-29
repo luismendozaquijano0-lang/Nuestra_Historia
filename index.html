@@ -132,32 +132,32 @@
         </h2>
 
 
-        
 
 
-     <div class="galeria" id="lista-recuerdos">
-</div>
+
+        <div class="galeria" id="lista-recuerdos">
+        </div>
 
 
-<div class="barra-acciones">
+        <div class="barra-acciones">
 
-    <button id="modo-editar">
-        ✏️ Editar
-    </button>
+            <button id="modo-editar">
+                ✏️ Editar
+            </button>
 
-    <button id="modo-eliminar">
-        🗑️ Eliminar
-    </button>
+            <button id="modo-eliminar">
+                🗑️ Eliminar
+            </button>
 
-</div>
-
-
-<button id="btn-agregar" class="boton-agregar">
-    ➕ Agregar recuerdo
-</button>
+        </div>
 
 
-       
+        <button id="btn-agregar" class="boton-agregar">
+            ➕ Agregar recuerdo
+        </button>
+
+
+
 
 
         <div id="formulario-recuerdo" class="agregar-recuerdo">
@@ -258,63 +258,73 @@
     <!-- MODAL DEL RECUERDO -->
 
 
-<div id="modal-recuerdo" class="modal">
+    <div id="modal-recuerdo" class="modal">
 
-    <div class="modal-contenido">
+        <div class="modal-contenido">
 
-        <button id="cerrar-modal">
-            ✕
-        </button>
+            <button id="cerrar-modal">
+                ✕
+            </button>
 
-        <div id="modal-multimedia">
-            <!-- Aquí irá la foto o video -->
+            <button id="btn-anterior" class="boton-modal-nav boton-anterior">
+                ‹
+            </button>
+
+            <button id="btn-siguiente" class="boton-modal-nav boton-siguiente">
+                ›
+            </button>
+
+            <div id="modal-multimedia">
+                <!-- Aquí irá la foto o video -->
+            </div>
+
+            <h2 id="modal-titulo"></h2>
+
+            <p id="modal-mensaje"></p>
+
+            <small id="modal-fecha"></small>
+
         </div>
-
-        <h2 id="modal-titulo"></h2>
-
-        <p id="modal-mensaje"></p>
-
-        <small id="modal-fecha"></small>
 
     </div>
 
-</div>
+
+    <div id="notificacion" class="notificacion">
+        ❤️ Recuerdo guardado
+    </div>
 
 
-<div id="notificacion" class="notificacion">
-    ❤️ Recuerdo guardado
-</div>
-<script src="app.js"></script>
-<script type="module" src="firebase.js"></script>
+    <script src="app.js"></script>
+    <script type="module" src="firebase.js"></script>
 
 
     <!-- MODAL CONFIRMAR ELIMINAR -->
 
-<div id="modal-eliminar" class="modal-confirmar">
+    <div id="modal-eliminar" class="modal-confirmar">
 
-    <div class="caja-confirmar">
+        <div class="caja-confirmar">
 
-        <h2>Eliminar recuerdo</h2>
+            <h2>Eliminar recuerdo</h2>
 
-        <p>
-            ¿Seguro que deseas eliminar este recuerdo?
-        </p>
+            <p>
+                ¿Seguro que deseas eliminar este recuerdo?
+            </p>
 
-        <div class="botones-confirmar">
+            <div class="botones-confirmar">
 
-            <button id="cancelar-eliminar">
-                Cancelar
-            </button>
+                <button id="cancelar-eliminar">
+                    Cancelar
+                </button>
 
-            <button id="aceptar-eliminar">
-                Eliminar
-            </button>
+                <button id="aceptar-eliminar">
+                    Eliminar
+                </button>
+
+            </div>
 
         </div>
 
     </div>
-
-</div>
 </body>
 
 </html>

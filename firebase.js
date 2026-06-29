@@ -524,6 +524,25 @@ document.getElementById("cerrar-modal")
 
 });
 
+document.getElementById("btn-anterior")
+.addEventListener("click", (evento) => {
+
+    evento.stopPropagation();
+
+    anteriorRecuerdo();
+
+});
+
+
+document.getElementById("btn-siguiente")
+.addEventListener("click", (evento) => {
+
+    evento.stopPropagation();
+
+    siguienteRecuerdo();
+
+});
+
 window.addEventListener("popstate", () => {
 
     if (modalAbierto) {

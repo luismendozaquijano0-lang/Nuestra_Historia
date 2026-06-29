@@ -903,3 +903,66 @@ footer {
 
     transform: scale(1.07);
 }
+
+/* ===== BOTONES PARA CAMBIAR RECUERDOS ===== */
+
+.boton-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+
+    font-size: 42px;
+    line-height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    z-index: 50;
+    transition: 0.3s;
+}
+
+.boton-modal-nav:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.boton-anterior {
+    left: 18px;
+}
+
+.boton-siguiente {
+    right: 18px;
+}
+
+@media(max-width:900px) {
+
+    .boton-modal-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 38px;
+        background: rgba(15, 23, 42, 0.45);
+    }
+
+    .boton-anterior {
+        left: 10px;
+    }
+
+    .boton-siguiente {
+        right: 10px;
+    }
+}
