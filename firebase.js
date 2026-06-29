@@ -54,6 +54,10 @@ const db = getFirestore(app);
 
 let modo = "";
 
+let recuerdos = [];
+let indiceActual = -1;
+let modalAbierto = false;
+let inicioX = 0;
 
 function mostrarNotificacion(texto) {
 
@@ -74,21 +78,27 @@ function mostrarNotificacion(texto) {
 async function cargarRecuerdos() {
 
     let fotos = 0;
-let videos = 0;
+    let videos = 0;
 
     const consulta = await getDocs(collection(db, "recuerdos"));
 
     const contenedor = document.getElementById("lista-recuerdos");
 
+    contenedor.innerHTML = "";
+    recuerdos = [];
     consulta.forEach((doc) => {
 
         const datos = doc.data();
 
-        if(datos.tipo === "video") {
-    videos++;
-} else {
-    fotos++;
-}
+        recuerdos.push({
+            id: doc.id,
+            ...datos
+        });
+        if (datos.tipo === "video") {
+            videos++;
+        } else {
+            fotos++;
+        }
 
         let multimedia = "";
 
@@ -158,11 +168,11 @@ ${multimedia}
 
     });
 
-document.getElementById("contador-fotos").textContent =
-    fotos + " recuerdos";
+    document.getElementById("contador-fotos").textContent =
+        fotos + " recuerdos";
 
-document.getElementById("contador-videos").textContent =
-    videos + " recuerdos"; 
+    document.getElementById("contador-videos").textContent =
+        videos + " recuerdos";
 
 }
 
@@ -212,36 +222,36 @@ botonGuardar.addEventListener("click", async () => {
         ? "video"
         : "image";
 
-    
-    
-    
-let datosCloudinary;
 
-try {
 
-    const respuesta = await fetch(
-        `https://api.cloudinary.com/v1_1/dqw7lrbuy/${tipoArchivo}/upload`,
-        {
-            method: "POST",
-            body: datosImagen
-        }
-    );
 
-    datosCloudinary = await respuesta.json();
+    let datosCloudinary;
 
-    console.log(datosCloudinary);
+    try {
 
-} catch(error) {
+        const respuesta = await fetch(
+            `https://api.cloudinary.com/v1_1/dqw7lrbuy/${tipoArchivo}/upload`,
+            {
+                method: "POST",
+                body: datosImagen
+            }
+        );
 
-    console.error(error);
+        datosCloudinary = await respuesta.json();
 
-    mostrarNotificacion("❌ Error de conexión con Cloudinary");
+        console.log(datosCloudinary);
 
-    return;
-}
+    } catch (error) {
+
+        console.error(error);
+
+        mostrarNotificacion("❌ Error de conexión con Cloudinary");
+
+        return;
+    }
 
     if (!datosCloudinary.secure_url) {
-       mostrarNotificacion("Eror al subir archivo");
+        mostrarNotificacion("Eror al subir archivo");
         return;
     }
 
@@ -266,7 +276,7 @@ try {
 
 window.eliminarRecuerdo = async function (id) {
 
-   
+
 
 
     // Buscar datos del recuerdo
@@ -280,7 +290,7 @@ window.eliminarRecuerdo = async function (id) {
     // Borrar imagen en Cloudinary
     if (datos.public_id) {
 
-       await fetch("https://nuestra-historia-api.onrender.com/eliminar-imagen", {
+        await fetch("https://nuestra-historia-api.onrender.com/eliminar-imagen", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -297,7 +307,7 @@ window.eliminarRecuerdo = async function (id) {
     await deleteDoc(referencia);
 
 
-   mostrarNotificacion("🗑️ Recuerdo eliminado");
+    mostrarNotificacion("🗑️ Recuerdo eliminado");
 
     location.reload();
 }
@@ -326,7 +336,7 @@ window.editarRecuerdo = async function (id) {
     });
 
 
-   mostrarNotificacion("✏️ Recuerdo actualizado");
+    mostrarNotificacion("✏️ Recuerdo actualizado");
 
     location.reload();
 
@@ -344,23 +354,19 @@ window.accionRecuerdo = async function (id, tarjeta) {
             videoPequeño.currentTime = 0;
         }
 
-        const referencia = doc(db, "recuerdos", id);
+       abrirModalPorId(id);
 
-        const recuerdo = await getDoc(referencia);
+return;
+    }
 
-        abrirModal(recuerdo.data());
+    if (modo === "eliminar") {
+
+        recuerdoAEliminar = id;
+
+        modalEliminar.style.display = "flex";
 
         return;
     }
-
-if (modo === "eliminar") {
-
-    recuerdoAEliminar = id;
-
-    modalEliminar.style.display = "flex";
-
-    return;
-}
 
 
     if (modo === "editar") {
@@ -403,12 +409,35 @@ window.guardarEdicion = async function (id, boton) {
     location.reload();
 
 }
+function abrirModalPorId(id) {
 
-function abrirModal(datos) {
+    const indice = recuerdos.findIndex(recuerdo => recuerdo.id === id);
+
+    if (indice === -1) {
+        return;
+    }
+
+    indiceActual = indice;
+
+    mostrarRecuerdo(indiceActual);
+
+    const modal = document.getElementById("modal-recuerdo");
+
+    modal.style.display = "flex";
+
+    modalAbierto = true;
+
+    document.body.style.overflow = "hidden";
+
+    history.pushState({ modal: true }, "", window.location.pathname);
+}
+
+
+function mostrarRecuerdo(indice) {
 
     detenerTodosLosVideos();
 
-    const modal = document.getElementById("modal-recuerdo");
+    const datos = recuerdos[indice];
 
     const multimedia = document.getElementById("modal-multimedia");
 
@@ -419,12 +448,12 @@ function abrirModal(datos) {
     const fecha = document.getElementById("modal-fecha");
 
 
-    // Mostrar foto o video
     if (datos.tipo === "video") {
 
         multimedia.innerHTML = `
-            <video controls autoplay>
+            <video controls autoplay playsinline>
                 <source src="${datos.foto}">
+                Tu navegador no soporta videos.
             </video>
         `;
 
@@ -442,28 +471,104 @@ function abrirModal(datos) {
     mensaje.textContent = datos.mensaje;
 
     fecha.textContent = datos.fecha;
+}
 
 
-    modal.style.display = "flex";
+function cerrarModal() {
 
+    detenerTodosLosVideos();
+
+    document.getElementById("modal-recuerdo").style.display = "none";
+
+    document.getElementById("modal-multimedia").innerHTML = "";
+
+    modalAbierto = false;
+
+    indiceActual = -1;
+
+    document.body.style.overflow = "";
+}
+
+
+function siguienteRecuerdo() {
+
+    if (indiceActual === -1) return;
+
+    indiceActual++;
+
+    if (indiceActual >= recuerdos.length) {
+        indiceActual = 0;
+    }
+
+    mostrarRecuerdo(indiceActual);
+}
+
+
+function anteriorRecuerdo() {
+
+    if (indiceActual === -1) return;
+
+    indiceActual--;
+
+    if (indiceActual < 0) {
+        indiceActual = recuerdos.length - 1;
+    }
+
+    mostrarRecuerdo(indiceActual);
 }
 
 document.getElementById("cerrar-modal")
 .addEventListener("click", () => {
 
-    detenerTodosLosVideos();
+    cerrarModal();
 
-    document.getElementById("modal-recuerdo")
-    .style.display = "none";
+});
 
-    document.getElementById("modal-multimedia")
-    .innerHTML = "";
+window.addEventListener("popstate", () => {
+
+    if (modalAbierto) {
+
+        cerrarModal();
+
+    }
+
+});
+
+
+const modalContenido = document.querySelector(".modal-contenido");
+
+modalContenido.addEventListener("touchstart", (evento) => {
+
+    inicioX = evento.touches[0].clientX;
+
+});
+
+
+modalContenido.addEventListener("touchend", (evento) => {
+
+    const finX = evento.changedTouches[0].clientX;
+
+    const diferencia = finX - inicioX;
+
+    if (Math.abs(diferencia) > 60) {
+
+        if (diferencia < 0) {
+
+            siguienteRecuerdo();
+
+        } else {
+
+            anteriorRecuerdo();
+
+        }
+
+    }
 
 });
 
 
 
-    function detenerTodosLosVideos() {
+function detenerTodosLosVideos() {
 
     document.querySelectorAll("video").forEach(video => {
 
