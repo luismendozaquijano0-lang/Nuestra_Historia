@@ -1954,3 +1954,234 @@ body::before {
         box-shadow: none !important;
     }
 }
+
+/* ===== CELULAR COMPACTO REAL ===== */
+
+@media(max-width:900px) {
+
+    body {
+        overflow-x: hidden !important;
+    }
+
+    section {
+        padding: 32px 6% !important;
+    }
+
+    /* HEADER */
+    .header {
+        padding: 12px 10px !important;
+        gap: 8px !important;
+    }
+
+    .logo {
+        font-size: 30px !important;
+        line-height: 1.1 !important;
+    }
+
+    .menu {
+        gap: 8px 16px !important;
+    }
+
+    .menu a {
+        font-size: 17px !important;
+    }
+
+    /* INICIO */
+    .hero {
+        min-height: auto !important;
+        padding: 38px 6% 40px !important;
+    }
+
+    .hero h1 {
+        font-size: 36px !important;
+        line-height: 1.1 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hero h2 {
+        font-size: 17px !important;
+        line-height: 1.35 !important;
+    }
+
+    .frase {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        margin-top: 18px !important;
+    }
+
+    /* CONTADOR */
+    .contador {
+        width: 100% !important;
+        padding: 18px 14px !important;
+        margin-top: 25px !important;
+        border-radius: 22px !important;
+    }
+
+    .contador h3 {
+        font-size: 20px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .tiempo {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .caja-tiempo {
+        min-width: 0 !important;
+        padding: 14px 8px !important;
+        border-radius: 18px !important;
+    }
+
+    .caja-tiempo span {
+        font-size: 34px !important;
+    }
+
+    .caja-tiempo p {
+        font-size: 14px !important;
+    }
+
+    .boton {
+        padding: 12px 24px !important;
+        font-size: 15px !important;
+        margin-top: 25px !important;
+    }
+
+    /* RESUMEN / ESTADÍSTICAS */
+    .estadisticas,
+    .resumen-historia {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding-top: 28px !important;
+        padding-bottom: 28px !important;
+    }
+
+    .tarjeta,
+    .resumen-item {
+        padding: 18px !important;
+        border-radius: 20px !important;
+        min-height: auto !important;
+    }
+
+    .tarjeta h3,
+    .resumen-item h3 {
+        font-size: 22px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .tarjeta p,
+    .resumen-item p {
+        font-size: 16px !important;
+    }
+
+    .resumen-item span {
+        font-size: 22px !important;
+    }
+
+    /* TÍTULOS */
+    .recuerdos h2,
+    .fechas h2,
+    .cartas h2,
+    .nosotros h2 {
+        font-size: 30px !important;
+        line-height: 1.15 !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* RECUERDOS */
+    .galeria {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 7px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .foto {
+        padding: 0 !important;
+        min-height: auto !important;
+        border-radius: 10px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .imagen-recuerdo {
+        width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        height: auto !important;
+        border-radius: 10px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .contenido-recuerdo,
+    .foto h3,
+    .foto p,
+    .foto small {
+        display: none !important;
+    }
+
+    /* BOTONES */
+    .barra-acciones {
+        justify-content: center !important;
+        gap: 7px !important;
+        margin: 18px 0 25px !important;
+    }
+
+    .barra-acciones button,
+    .boton-agregar {
+        width: 100px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        font-size: 12px !important;
+        border-radius: 999px !important;
+    }
+
+    /* LÍNEA DE TIEMPO */
+    .fechas {
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+        gap: 12px !important;
+    }
+
+    .fechas .evento {
+        min-height: auto !important;
+        padding: 18px 16px !important;
+        font-size: 16px !important;
+        line-height: 1.35 !important;
+        border-radius: 20px !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* CARTAS */
+    .cartas {
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+    }
+
+    .boton-carta {
+        padding: 12px 28px !important;
+        font-size: 16px !important;
+    }
+
+    /* NOSOTROS */
+    .nosotros {
+        padding-top: 35px !important;
+        padding-bottom: 45px !important;
+    }
+
+    .nosotros p,
+    .nosotros-card p {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+
+    .nosotros-card {
+        padding: 24px 18px !important;
+        border-radius: 22px !important;
+    }
+
+    footer {
+        padding: 22px 10px !important;
+        font-size: 14px !important;
+    }
+}
