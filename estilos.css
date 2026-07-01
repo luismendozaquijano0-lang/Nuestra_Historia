@@ -1555,3 +1555,402 @@ section {
         font-size: 15px;
     }
 }
+
+/* ===== LIMPIEZA DE INTERFAZ: MENOS VACÍO ===== */
+
+.resumen-historia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding-top: 35px;
+    padding-bottom: 45px;
+}
+
+.resumen-item {
+    background: rgba(23, 37, 84, 0.85);
+    border: 1px solid rgba(147, 197, 253, 0.22);
+    border-radius: 22px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+}
+
+.resumen-item span {
+    font-size: 28px;
+}
+
+.resumen-item h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.resumen-item p {
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+/* Reducir espacios grandes */
+.estadisticas {
+    display: none;
+}
+
+.fechas {
+    padding-top: 55px;
+}
+
+.fechas .evento {
+    min-height: auto;
+    padding: 28px 35px;
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+/* Nosotros más compacto y profesional */
+.nosotros {
+    padding-top: 55px;
+    padding-bottom: 70px;
+}
+
+.nosotros-card {
+    max-width: 720px;
+    margin: auto;
+    background: rgba(23, 37, 84, 0.85);
+    border: 1px solid rgba(147, 197, 253, 0.22);
+    border-radius: 28px;
+    padding: 38px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+}
+
+.nosotros-card h2 {
+    margin-bottom: 18px;
+}
+
+.nosotros-card p {
+    color: #dbeafe;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.nosotros-detalles {
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.nosotros-detalles span {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(147, 197, 253, 0.20);
+    padding: 9px 15px;
+    border-radius: 999px;
+    color: #bfdbfe;
+    font-size: 14px;
+}
+
+/* Celular */
+@media(max-width:900px) {
+
+    .resumen-historia {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-top: 25px;
+        padding-bottom: 35px;
+    }
+
+    .resumen-item {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .resumen-item h3 {
+        font-size: 19px;
+    }
+
+    .resumen-item p {
+        font-size: 15px;
+    }
+
+    .fechas {
+        padding-top: 45px;
+    }
+
+    .fechas .evento {
+        padding: 24px 20px;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .nosotros-card {
+        padding: 28px 22px;
+        border-radius: 24px;
+    }
+
+    .nosotros-card p {
+        font-size: 16px;
+    }
+}
+
+/* ===== LÍNEA DE TIEMPO MÁS COMPACTA ===== */
+
+.fechas {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 55px;
+    padding-bottom: 55px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.fechas h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 18px;
+    font-size: 32px;
+}
+
+.fechas .evento {
+    min-height: 130px;
+    padding: 24px 22px;
+    margin-bottom: 0;
+
+    border-radius: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 17px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* En celular: uno debajo de otro, pero más pequeño */
+@media(max-width:900px) {
+
+    .fechas {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-top: 40px;
+        padding-bottom: 45px;
+    }
+
+    .fechas h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .fechas .evento {
+        min-height: auto;
+        padding: 20px 18px;
+        font-size: 17px;
+        border-radius: 22px;
+    }
+}
+
+/* ===== PALETA PROFESIONAL SOBRIA ===== */
+
+body {
+    background: #08111f !important;
+    color: #f8fafc;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 15%, rgba(14, 165, 233, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.16), transparent 32%),
+        linear-gradient(135deg, #08111f 0%, #0f1b33 55%, #111827 100%) !important;
+}
+
+/* Header más serio */
+.header {
+    background: rgba(8, 17, 31, 0.96) !important;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35) !important;
+}
+
+.logo {
+    background: linear-gradient(90deg, #f8fafc, #93c5fd, #38bdf8) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Menú limpio */
+.menu a {
+    color: #cbd5e1 !important;
+}
+
+.menu a:hover {
+    color: #38bdf8 !important;
+}
+
+.menu a::after {
+    background: #38bdf8 !important;
+}
+
+/* Títulos profesionales */
+.hero h1,
+.recuerdos h2,
+.fechas h2,
+.cartas h2,
+.nosotros h2 {
+    background: linear-gradient(90deg, #ffffff, #bfdbfe, #38bdf8) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Textos */
+.hero h2,
+.frase,
+.tarjeta p,
+.foto p,
+.nosotros-card p,
+.resumen-item p {
+    color: #cbd5e1 !important;
+}
+
+/* Tarjetas sólidas y elegantes */
+.contador,
+.tarjeta,
+.foto,
+.evento,
+.resumen-item,
+.nosotros-card,
+.agregar-recuerdo,
+.modal-contenido,
+.caja-confirmar {
+    background: #111c35 !important;
+    border: 1px solid rgba(96, 165, 250, 0.22) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32) !important;
+}
+
+/* Cajas del contador */
+.caja-tiempo {
+    background: #1b2946 !important;
+    border: 1px solid rgba(148, 163, 184, 0.20) !important;
+}
+
+.caja-tiempo span {
+    color: #93c5fd !important;
+}
+
+/* Botón principal */
+.boton,
+.boton-carta,
+#guardar-recuerdo {
+    background: linear-gradient(90deg, #2563eb, #0284c7) !important;
+    color: white !important;
+    box-shadow: 0 14px 34px rgba(37, 99, 235, 0.32) !important;
+}
+
+.boton:hover,
+.boton-carta:hover,
+#guardar-recuerdo:hover {
+    background: linear-gradient(90deg, #1d4ed8, #0369a1) !important;
+}
+
+/* Botones de acciones: discretos */
+#modo-editar {
+    background: rgba(37, 99, 235, 0.18) !important;
+    border: 1px solid rgba(96, 165, 250, 0.45) !important;
+    color: #bfdbfe !important;
+    box-shadow: none !important;
+}
+
+#modo-eliminar {
+    background: rgba(127, 29, 29, 0.28) !important;
+    border: 1px solid rgba(248, 113, 113, 0.35) !important;
+    color: #fecaca !important;
+    box-shadow: none !important;
+}
+
+#btn-agregar,
+.boton-agregar {
+    background: rgba(14, 165, 233, 0.16) !important;
+    border: 1px solid rgba(56, 189, 248, 0.42) !important;
+    color: #bae6fd !important;
+    box-shadow: none !important;
+}
+
+/* Galería más limpia */
+.imagen-recuerdo {
+    border: 1px solid rgba(148, 163, 184, 0.16) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.30) !important;
+}
+
+.foto h3 {
+    color: #f8fafc !important;
+}
+
+.foto small {
+    color: #93c5fd !important;
+}
+
+/* Línea de tiempo más profesional */
+.fechas .evento {
+    background: #111c35 !important;
+    border: 1px solid rgba(96, 165, 250, 0.22) !important;
+    color: #e2e8f0 !important;
+}
+
+/* Modal */
+.modal {
+    background: rgba(2, 6, 23, 0.70) !important;
+}
+
+#cerrar-modal,
+.boton-modal-nav {
+    background: rgba(15, 23, 42, 0.88) !important;
+    border: 1px solid rgba(148, 163, 184, 0.28) !important;
+    color: #e2e8f0 !important;
+}
+
+#cerrar-modal:hover,
+.boton-modal-nav:hover {
+    background: #1d4ed8 !important;
+}
+
+/* Formulario */
+.agregar-recuerdo input,
+.agregar-recuerdo textarea,
+.editar-recuerdo input,
+.editar-recuerdo textarea {
+    background: #0b1220 !important;
+    border: 1px solid rgba(148, 163, 184, 0.24) !important;
+}
+
+/* Celular */
+@media(max-width:900px) {
+
+    body {
+        background: #08111f !important;
+    }
+
+    .header {
+        background: rgba(8, 17, 31, 0.98) !important;
+    }
+
+    .foto {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .imagen-recuerdo {
+        border-radius: 10px !important;
+    }
+
+    .barra-acciones button,
+    .boton-agregar {
+        box-shadow: none !important;
+    }
+}
