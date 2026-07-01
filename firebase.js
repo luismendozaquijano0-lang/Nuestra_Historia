@@ -102,19 +102,24 @@ async function cargarRecuerdos() {
 
         let multimedia = "";
 
-        if (datos.tipo === "video") {
 
-            multimedia = `
-   <video 
-class="imagen-recuerdo"
-controls
-onclick="event.stopPropagation()">
-        <source src="${datos.foto}">
-        Tu navegador no soporta videos.
-    </video>
+
+
+       if (datos.tipo === "video") {
+
+    multimedia = `
+        <video 
+            class="imagen-recuerdo"
+            muted
+            playsinline
+            preload="metadata">
+            <source src="${datos.foto}">
+            Tu navegador no soporta videos.
+        </video>
     `;
 
-        } else {
+} else {
+
 
             multimedia = `
     <img src="${datos.foto}" class="imagen-recuerdo">
