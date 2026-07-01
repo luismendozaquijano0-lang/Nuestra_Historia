@@ -1303,3 +1303,255 @@ section {
     }
 }
 
+/* ===== AJUSTE REAL PARA CELULAR ===== */
+
+@media(max-width:900px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+
+    /* HEADER MÁS COMPACTO */
+    .header {
+        position: sticky;
+        top: 0;
+        padding: 14px 12px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 34px;
+        line-height: 1.1;
+    }
+
+    .menu {
+        gap: 10px 18px;
+    }
+
+    .menu a {
+        font-size: 19px;
+    }
+
+    /* PORTADA */
+    .hero {
+        min-height: auto;
+        padding: 55px 6% 50px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        line-height: 1.1;
+        margin-bottom: 16px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+        line-height: 1.35;
+    }
+
+    .frase {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 22px;
+    }
+
+    /* CONTADOR MÁS PEQUEÑO */
+    .contador {
+        width: 100%;
+        padding: 24px 18px;
+        margin-top: 32px;
+        border-radius: 24px;
+    }
+
+    .contador h3 {
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+
+    .tiempo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .caja-tiempo {
+        min-width: 0;
+        padding: 18px 10px;
+        border-radius: 20px;
+    }
+
+    .caja-tiempo span {
+        font-size: 42px;
+    }
+
+    .caja-tiempo p {
+        font-size: 17px;
+    }
+
+    .boton {
+        padding: 13px 28px;
+        font-size: 16px;
+    }
+
+    /* TARJETAS DE FOTOS / VIDEOS / MOMENTOS */
+    .estadisticas {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .tarjeta {
+        padding: 28px 18px;
+        border-radius: 26px;
+    }
+
+    .tarjeta h3 {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .tarjeta p {
+        font-size: 20px;
+    }
+
+    /* TÍTULOS DE SECCIONES */
+    .recuerdos h2,
+    .fechas h2,
+    .cartas h2,
+    .nosotros h2 {
+        font-size: 36px;
+        line-height: 1.15;
+        margin-bottom: 35px;
+    }
+
+    /* RECUERDOS: MANTENER GALERÍA BONITA */
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+        margin-bottom: 24px;
+    }
+
+    .foto {
+        padding: 0;
+        min-height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .imagen-recuerdo {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 0;
+    }
+
+    .contenido-recuerdo,
+    .foto h3,
+    .foto p,
+    .foto small {
+        display: none;
+    }
+
+    /* BOTONES DE RECUERDOS */
+    .barra-acciones {
+        justify-content: center;
+        gap: 8px;
+        margin: 20px 0 30px;
+    }
+
+    .barra-acciones button,
+    .boton-agregar {
+        width: 105px;
+        height: 38px;
+        padding: 0;
+        font-size: 12px;
+        border-radius: 999px;
+    }
+
+    /* FORMULARIO */
+    .agregar-recuerdo {
+        grid-template-columns: 1fr;
+        padding: 24px 18px;
+        border-radius: 24px;
+    }
+
+    .agregar-recuerdo textarea,
+    #guardar-recuerdo {
+        grid-column: 1;
+    }
+
+    .agregar-recuerdo input,
+    .agregar-recuerdo textarea {
+        font-size: 15px;
+        padding: 13px 15px;
+    }
+
+    #guardar-recuerdo {
+        padding: 13px 28px;
+        font-size: 15px;
+    }
+
+    /* LÍNEA DE TIEMPO */
+    .evento {
+        min-height: auto;
+        padding: 28px 20px;
+        border-radius: 26px;
+        font-size: 21px;
+        line-height: 1.35;
+        margin-bottom: 22px;
+    }
+
+    /* CARTAS */
+    .cartas {
+        padding-top: 50px;
+        padding-bottom: 55px;
+    }
+
+    .boton-carta {
+        padding: 14px 34px;
+        font-size: 18px;
+        border-radius: 32px;
+    }
+
+    /* NOSOTROS */
+    .nosotros {
+        padding-top: 45px;
+        padding-bottom: 65px;
+    }
+
+    .nosotros p {
+        font-size: 19px;
+        line-height: 1.45;
+    }
+
+    /* MODAL */
+    .modal-contenido {
+        width: 92%;
+        height: 86vh;
+        padding: 18px;
+        border-radius: 28px;
+    }
+
+    #modal-titulo {
+        font-size: 28px;
+    }
+
+    #modal-mensaje {
+        font-size: 16px;
+    }
+
+    #modal-fecha {
+        font-size: 15px;
+    }
+}
