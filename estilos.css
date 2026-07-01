@@ -2185,3 +2185,148 @@ body::before {
         font-size: 14px !important;
     }
 }
+
+/* ===== CELULAR PEQUEÑO / AJUSTE FINAL ===== */
+
+@media(max-width:480px) {
+
+    section {
+        padding: 28px 6% !important;
+    }
+
+    /* HEADER MÁS PEQUEÑO */
+    .header {
+        padding: 10px 8px !important;
+        gap: 6px !important;
+    }
+
+    .logo {
+        font-size: 28px !important;
+        line-height: 1.05 !important;
+    }
+
+    .menu {
+        gap: 6px 14px !important;
+    }
+
+    .menu a {
+        font-size: 16px !important;
+        line-height: 1.2 !important;
+    }
+
+    /* PORTADA MÁS COMPACTA */
+    .hero {
+        padding: 35px 6% 35px !important;
+        min-height: auto !important;
+    }
+
+    .hero h1 {
+        font-size: 34px !important;
+        line-height: 1.05 !important;
+        margin-bottom: 12px !important;
+    }
+
+    .hero h2 {
+        font-size: 16px !important;
+        line-height: 1.35 !important;
+    }
+
+    .frase {
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+        margin-top: 18px !important;
+    }
+
+    /* CONTADOR MÁS CHICO */
+    .contador {
+        width: 100% !important;
+        padding: 16px 12px !important;
+        margin-top: 24px !important;
+        border-radius: 20px !important;
+    }
+
+    .contador h3 {
+        font-size: 19px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .tiempo {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 9px !important;
+    }
+
+    .caja-tiempo {
+        padding: 12px 6px !important;
+        border-radius: 16px !important;
+        min-width: 0 !important;
+    }
+
+    .caja-tiempo span {
+        font-size: 30px !important;
+    }
+
+    .caja-tiempo p {
+        font-size: 13px !important;
+        margin-top: 4px !important;
+    }
+
+    .boton {
+        padding: 11px 22px !important;
+        font-size: 14px !important;
+        margin-top: 22px !important;
+    }
+
+    /* TARJETAS */
+    .tarjeta,
+    .resumen-item {
+        padding: 16px !important;
+        border-radius: 18px !important;
+    }
+
+    .tarjeta h3,
+    .resumen-item h3 {
+        font-size: 20px !important;
+    }
+
+    .tarjeta p,
+    .resumen-item p {
+        font-size: 14px !important;
+    }
+
+    /* TÍTULOS DE SECCIONES */
+    .recuerdos h2,
+    .fechas h2,
+    .cartas h2,
+    .nosotros h2 {
+        font-size: 28px !important;
+        line-height: 1.12 !important;
+        margin-bottom: 22px !important;
+    }
+
+    /* FECHAS */
+    .fechas .evento {
+        padding: 16px 14px !important;
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+        border-radius: 18px !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* NOSOTROS */
+    .nosotros-card {
+        padding: 20px 16px !important;
+        border-radius: 20px !important;
+    }
+
+    .nosotros-card p,
+    .nosotros p {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+    }
+
+    footer {
+        font-size: 13px !important;
+        padding: 18px 10px !important;
+    }
+}
