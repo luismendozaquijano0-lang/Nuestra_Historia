@@ -2330,3 +2330,9 @@ body::before {
         padding: 18px 10px !important;
     }
 }
+
+#guardar-recuerdo:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none !important;
+}

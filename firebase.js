@@ -206,24 +206,27 @@ const botonGuardar = document.getElementById("guardar-recuerdo");
 botonGuardar.addEventListener("click", async () => {
 
     const foto = document.getElementById("foto").files[0];
-
     const titulo = document.getElementById("titulo").value;
     const mensaje = document.getElementById("mensaje").value;
     const fecha = document.getElementById("fecha").value;
+
+    if (!foto || !titulo || !mensaje || !fecha) {
+        mostrarNotificacion("⚠️ Completa todos los campos");
+        return;
+    }
+
+    botonGuardar.disabled = true;
+    botonGuardar.textContent = "⏳ Subiendo...";
+    mostrarNotificacion("⏳ Subiendo recuerdo...");
 
     const datosImagen = new FormData();
 
     datosImagen.append("file", foto);
     datosImagen.append("upload_preset", "nuestra_historia");
 
-
-    // Detectar si es imagen o video
     const tipoArchivo = foto.type.startsWith("video")
         ? "video"
         : "image";
-
-
-
 
     let datosCloudinary;
 
@@ -241,39 +244,61 @@ botonGuardar.addEventListener("click", async () => {
 
         console.log(datosCloudinary);
 
-    } catch (error) {
+    } catch(error) {
 
         console.error(error);
 
-        mostrarNotificacion("❌ Error de conexión con Cloudinary");
+        mostrarNotificacion("❌ Error de conexión al subir");
+
+        botonGuardar.disabled = false;
+        botonGuardar.textContent = "Guardar";
 
         return;
     }
 
     if (!datosCloudinary.secure_url) {
-        mostrarNotificacion("Eror al subir archivo");
+
+        mostrarNotificacion("❌ Error al subir archivo");
+
+        botonGuardar.disabled = false;
+        botonGuardar.textContent = "Guardar";
+
         return;
     }
 
     const urlFoto = datosCloudinary.secure_url;
     const idFoto = datosCloudinary.public_id;
 
-    await addDoc(collection(db, "recuerdos"), {
-        titulo: titulo,
-        mensaje: mensaje,
-        fecha: fecha,
-        foto: urlFoto,
-        public_id: idFoto,
-        tipo: tipoArchivo
-    });
+    try {
 
+        await addDoc(collection(db, "recuerdos"), {
+            titulo: titulo,
+            mensaje: mensaje,
+            fecha: fecha,
+            foto: urlFoto,
+            public_id: idFoto,
+            tipo: tipoArchivo
+        });
 
-    mostrarNotificacion("Recuerdo guardado");
+        mostrarNotificacion("✅ Recuerdo guardado");
 
-    location.reload();
+        botonGuardar.textContent = "✅ Guardado";
+
+        setTimeout(() => {
+            location.reload();
+        }, 900);
+
+    } catch(error) {
+
+        console.error(error);
+
+        mostrarNotificacion("❌ Error al guardar recuerdo");
+
+        botonGuardar.disabled = false;
+        botonGuardar.textContent = "Guardar";
+    }
 
 });
-
 window.eliminarRecuerdo = async function (id) {
 
 
